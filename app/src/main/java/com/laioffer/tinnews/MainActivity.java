@@ -38,23 +38,25 @@ public class MainActivity extends AppCompatActivity {
 
 
         // fetch data from back ending using Retrofit
-        NewsApi api = RetrofitClient.newInstance().create(NewsApi.class);
-        api.getTopHeadlines("US").enqueue(new Callback<NewsResponse>() {
-            @Override
-            public void onResponse(Call<NewsResponse> call, Response<NewsResponse> response) {
-                if (response.isSuccessful()) {
-                    Log.d("getTopHeadlines", response.body().toString());
-                }
-                else {
-                    Log.d("getTopHeadlines", response.toString());
-                }
-            }
-            @Override
-            public void onFailure(Call<NewsResponse> call, Throwable t) {
-                Log.d("getTopHeadlines", t.toString());
+//        NewsApi api = RetrofitClient.newInstance().create(NewsApi.class);
+//        api.getTopHeadlines("US").enqueue(new Callback<NewsResponse>() {    //  要有enqueue这个callback才会execute
+//            @Override
+//            public void onResponse(Call<NewsResponse> call, Response<NewsResponse> response) {
+//                if (response.isSuccessful()) {
+//                    Log.d("getTopHeadlines", response.body().toString());
+//                }
+//                else {  //  比如api key改了，就发送不成功会到这里
+//                    Log.d("getTopHeadlines", response.toString());
+//                }
+//            }
+//            @Override
+//            public void onFailure(Call<NewsResponse> call, Throwable t) {   //  比如断网会收不到response
+//                Log.d("getTopHeadlines", t.toString());
+//
+//            }
+//        });
 
-            }
-        });
+
     }
 
     @Override

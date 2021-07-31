@@ -20,8 +20,8 @@ public class NewsRepository {
 
     public LiveData<NewsResponse> getTopHeadlines(String country) {
         MutableLiveData<NewsResponse> topHeadlinesLiveData = new MutableLiveData<>();
-        newsApi.getTopHeadlines(country)
-                .enqueue(new Callback<NewsResponse>() {
+        newsApi.getTopHeadlines(country)    //  这是一个异步async的callback function
+                .enqueue(new Callback<NewsResponse>() { //  这是一个Network request所以会有延迟，必须要Async
                     @Override
                     public void onResponse(Call<NewsResponse> call, Response<NewsResponse> response) {
                         if (response.isSuccessful()) {

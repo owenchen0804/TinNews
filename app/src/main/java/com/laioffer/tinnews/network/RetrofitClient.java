@@ -17,7 +17,7 @@ public class RetrofitClient {
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .addInterceptor(new HeaderInterceptor())    //  2. A header interceptor
                 // helper class有override intercept的定义
-                .build();
+                .build();   //  先有+interceptor来add header然后才是build
         return new Retrofit.Builder()   //  provide a configured Retrofit instance, that can then
                 //  instantiate a NewsApi implementation
                 .baseUrl(BASE_URL)
